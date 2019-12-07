@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<<<<<<< HEAD
+  <div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>vapp</title>
+    <script src="./js/socket.io.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="css/bootstrap.min.css">
+=======
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <link rel="icon" href="<%= BASE_URL %>favicon.ico"> 
+      <title>vapp</title>
+      <link src="./css/animate.css">
+      <!-- <script src="./js/socket.io.js"></script> -->
+      <script src="js/jquery-1.11.3.js"></script>
+      <!-- <script src="js/bootstrap.js"></script>-->
+  </head>
+>>>>>>> update df
+  <body>
+    <noscript>
+      <strong>We're sorry but vapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+<<<<<<< HEAD
+    <button>重复请求</button>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <div id="broadcast"></div>
+    <input id="inputMsg">
+    <input id="btnSend" type="button" onclick="send()" value="发送按钮">
+    <script>
+      var cio=io("ws://127.0.0.1:4000");
+      var parent=document.getElementById("broadcast");
+      var client=parseInt(Math.random()*80);
+      var input=document.getElementById("inputMsg");
+      function send(){
+        var msg=input.value;
+        var reg=/^\s+|\s+$/;
+        if(reg.test(msg)==false){
+          cio.emit("list",msg);
+          // msg='';
+        }
+        input.value='';
+        input.focus();
+      }
+      cio.emit("message","客户："+client);
+      cio.on("enter",(data)=>{
+        var newMsg=document.createElement("div");
+        newMsg.innerHTML=data;
+        newMsg.style.color="red";
+        parent.appendChild(newMsg);
+      })
+      cio.on("leave",(data)=>{
+        var newMsg=document.createElement("div");
+        newMsg.innerHTML=client+":"+data;
+        newMsg.style.color="green";
+        parent.appendChild(newMsg);
+      })
+    </script>
+=======
+    <div id="app"></div>
+>>>>>>> update df
+  </body>
+</html>
